@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafikklys</title>
+    <style>
+        #lys{
+            background-color: #525252;
+            width: 120px;
+            padding: 30px;
+            border: solid black;
+            margin-left: 2%;
+            /*margin-right: 30%; */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            
+        }
+        button{
+            padding: 2% 5%;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        
+        section{
+            height: 100px;
+            width: 100px;
+            background-color: #b1b1b1;
+            border: double black;
+            border-width: 7px;
+            border-radius: 60px;
+            cursor: pointer;
+        }
+        p{
+            background-color: rgba(159, 197, 184, 0.678);
+        }
+    </style>
+</head>
+<body>
+    <div id="lys">
+        <section id="rødt" onclick="onLight('#ee1d40', '#b1b1b1', '#b1b1b1', 'rødt')"></section>
+        <section id="gult" onclick="onLight('#ee1d40', '#ffe44d', '#b1b1b1', 'gult og rødt')"></section>
+        <section id="grønt" onclick="onLight('#b1b1b1','#b1b1b1', '#41b300', 'grønt')"></section>
+    </div>
+    <!--red- #ee1d40 yellow- #ffe44d green-#41b300 -->
+    <h2>Trykk på lysene for å skru dem på!</h2>
+    <p id="message"></p>
+    <div id="knapp">
+        <button onclick="autoLight()">Automatiser</button>
+    </div>
+    
+
+    <script>
+        let autoLights = 1;
+
+        function onLight(top, middle, bottom, msg){
+            document.getElementById('rødt').style.backgroundColor = top;
+            document.getElementById('gult').style.backgroundColor = middle;
+            document.getElementById('grønt').style.backgroundColor = bottom;
+                
+            document.getElementById('message').innerHTML = `Lyset er ${msg}!`;
+        }
+
+
+        function autoLight(){
+            if (autoLights === 1){ 
+                document.getElementById('rødt').style.backgroundColor = '#ee1d40';
+                document.getElementById('gult').style.backgroundColor = '#b1b1b1';
+                document.getElementById('grønt').style.backgroundColor = '#b1b1b1';
+                autoLights = 2;
+                setTimeout(autoLight, 1500);
+                
+            } else if (autoLights === 2){
+                document.getElementById('rødt').style.backgroundColor = '#ee1d40';
+                document.getElementById('gult').style.backgroundColor = '#ffe44d';
+                document.getElementById('grønt').style.backgroundColor = '#b1b1b1';
+
+                autoLights = 3;
+                setTimeout(autoLight, 1500);
+            } else {
+                document.getElementById('rødt').style.backgroundColor = '#b1b1b1';
+                document.getElementById('gult').style.backgroundColor = '#b1b1b1';
+                document.getElementById('grønt').style.backgroundColor = '#41b300';
+                autoLights = 1;
+                setTimeout(autoLight, 1500);
+            }
+        }   
+
+
+    </script>
+
+
+</body>
+</html>
