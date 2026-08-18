@@ -9,3 +9,5 @@ I denne oppgaven skal du lage et trafikklys som bytter fra rødt - til rødt og 
 3. Bruk funksjon med parameter, CSS klasser og onclick for å få knappene til å endre lysene.
 
 4. Når du har fått til dette kan du utfordre deg selv og forsøke å finne ut hvordan man kan automatisere trafikklyset ved hjelp av setTimeout()
+
+https://shironishi.github.io/Trafikklys/ 
